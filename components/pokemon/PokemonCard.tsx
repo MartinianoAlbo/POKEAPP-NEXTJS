@@ -14,7 +14,7 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`/pokemon/${ (id) }`)
+    router.push(`/name/${ name }`)
   }
 
   return (
@@ -33,8 +33,8 @@ const PokemonCard: FC<Props> = ({ pokemon }) => {
         />
       </Card.Body>
       <Card.Footer>
-        <Row justify='space-between'>
-          <Text transform='capitalize' >  { name } </Text>
+        <Row justify='space-between' align="center">
+          <Text transform='capitalize' css={{ 'fontSize':'19px;' }} >  { name } </Text>
           <Text>  # { id } </Text>
         </Row>
       </Card.Footer>

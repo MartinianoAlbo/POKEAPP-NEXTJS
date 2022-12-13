@@ -1,29 +1,37 @@
+import { Pokemon } from "../interfaces";
+import { PokeFavorite } from "../interfaces";
 
-const toggleFavorite = ( id:number ) => {
+const toggleFavorite = ( pokemon :Pokemon ) => {
 
-  let favorites: number[] = JSON.parse( localStorage.getItem('favorites') || '[]' );
+  const { id, name } = pokemon;
 
-  if ( favorites.includes(id) ) {
-    favorites = favorites.filter( pokeId => pokeId !== id );
+  let favorites: PokeFavorite = JSON.parse( localStorage.getItem('favorites') || '{}' );
+
+  if ( Object.hasOwn(favorites, id) ) {
+
+    const { [id]: deletedPorperty, ...rest } = favorites;
+
+   localStorage.setItem('favorites', JSON.stringify( rest ));
+   
   } else {
-    favorites.push( id );
+    Object.assign(favorites, { [id] : { id, name } } )
+    localStorage.setItem('favorites', JSON.stringify( favorites ));
   }
 
-  localStorage.setItem('favorites', JSON.stringify( favorites ));
 }
 
 const existInFavorites = ( id:number ): boolean => {
   
   if( typeof window === 'undefined' ) return false;
 
-  const favorites: number[] = JSON.parse( localStorage.getItem( 'favorites' ) || '[]'  );
+  const favorites: PokeFavorite = JSON.parse( localStorage.getItem( 'favorites' ) || '{}'  );
 
-  return favorites.includes( id );
+  return Object.hasOwn(favorites, id);
 }
 
-const pokemons = ( ): number[] => {
+const pokemons = (): PokeFavorite => {
   
-  return JSON.parse( localStorage.getItem('favorites') || '[]' );
+  return JSON.parse( localStorage.getItem('favorites') || '{}' );
 }
 
 export default { toggleFavorite, existInFavorites, pokemons }

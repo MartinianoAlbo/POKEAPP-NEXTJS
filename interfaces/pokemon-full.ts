@@ -22,6 +22,11 @@ export interface Pokemon {
   results:                  any[];
 }
 
+export interface PokeFavorite {
+  id?: number,
+  name?: string
+}
+
 export interface Ability {
   ability:   Species;
   is_hidden: boolean;

@@ -20,7 +20,7 @@ import NextLink from 'next/link'
     }}>
 
       <Image 
-        src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg"}
+        src={"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"}
         height={50}
         width={50}
         alt="logo"
@@ -32,7 +32,7 @@ import NextLink from 'next/link'
             P
           </Text>
           <Text color="white" h3>
-            ockémon
+            ocke App
           </Text>
         </Link>
       </NextLink>
@@ -43,11 +43,17 @@ import NextLink from 'next/link'
       }}/>
 
       <NextLink href={"/favorites"} passHref>
-        <Link  >
-          <Text color="white">
-            Favoritos
-          </Text>
-        </Link>
+        <div style={{ 
+          'border': '10px;',
+          'borderWidth': '10px;',
+          'borderColor': 'red;'
+        }} >
+          <Link>
+            <Text color="red" >
+              Favoritos
+            </Text>
+          </Link>
+        </div>
       </NextLink>
 
     </div>

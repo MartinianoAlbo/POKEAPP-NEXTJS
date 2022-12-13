@@ -10,6 +10,7 @@ interface Props {
   pokemons: SmallPokemon[]
 }
 
+
 const Home: NextPage<Props> = ( { pokemons } ) => {
   
   return (
