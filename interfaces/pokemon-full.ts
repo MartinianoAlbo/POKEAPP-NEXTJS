@@ -22,9 +22,13 @@ export interface Pokemon {
   results:                  any[];
 }
 
+export interface Favorite {
+  [index: number]: PokeFavorite;
+}
+
 export interface PokeFavorite {
-  id?: number,
-  name?: string
+  id:   number;
+  name: string;
 }
 
 export interface Ability {

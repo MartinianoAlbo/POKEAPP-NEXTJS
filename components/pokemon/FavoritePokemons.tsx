@@ -11,10 +11,10 @@ interface Props {
 export const FavoritePokemons: FC<Props> = ({ pokemons })  => {
   
   return (
-    <Grid.Container gap={2} direction='row' justify='flex-start' >
+    <Grid.Container gap={1} direction='row' justify='flex-start' >
       {
         Object.values(pokemons).map( ({id, name}) => (
-          <Grid xs={6} sm={3} md={2} xl={1} key={id} >
+          <Grid xs={4} sm={2} md={3} xl={1} key={id} >
            <FavoritePokemonCard key={id} name={name} id={id} />
           </Grid>
         ))
