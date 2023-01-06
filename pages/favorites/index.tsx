@@ -8,7 +8,7 @@ import { PokeFavorite } from '../../interfaces'
 
 const Favorites:NextPage = () => {
 
-  const [ favoritesPokemons, setFavoritesPokemons ] = useState<PokeFavorite>( {} );
+  const [ favoritesPokemons, setFavoritesPokemons ] = useState<PokeFavorite>();
   
   useEffect(() => {
     setFavoritesPokemons( localFavorites.pokemons );
@@ -18,7 +18,7 @@ const Favorites:NextPage = () => {
   return (
     <Layout title='Favoritos'>
       {
-        Object.values(favoritesPokemons).length > 0 
+        favoritesPokemons
         ? ( <FavoritePokemons pokemons={ favoritesPokemons } /> )
         : ( <NoFavorites /> )
       }
